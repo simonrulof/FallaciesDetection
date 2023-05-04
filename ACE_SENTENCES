@@ -4,7 +4,9 @@ predicat 2
 ...
 predicat N
 
-Raisonement
+Raisonement 1
+...
+Raisonement N
 
 
 nameOfTest2:
@@ -13,5 +15,7 @@ predicat 2
 ...
 predicat N
 
-Raisonnement
+Raisonement 1
+...
+Raisonement N
 
