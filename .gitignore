@@ -1,2 +1,4 @@
 # ignore modifications on APE
 /APE
+TOKEN
+makefile
