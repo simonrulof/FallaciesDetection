@@ -1,12 +1,15 @@
 import Assets
+import Assets.GlobalVar as GlobalVar
+from Assets.Setup import setup
 from Assets.Predicats_Raisonnements import form_predicats_raisonnements
 from Assets.ACEToDRS import transformACEToDRS
 
-ACE_FILE_NAME = "ACE_SENTENCES"
 
 if __name__ == '__main__':
+    setup()
+    
     # ETAPE 0 : METTRE EN FORME LES PREDICATS ET RAISONNEMENTS
-    listNameSentences, listPredicates, listReasoning = form_predicats_raisonnements(ACE_FILE_NAME)
+    listNameSentences, listPredicates, listReasoning = form_predicats_raisonnements(GlobalVar.ACE_FILE_NAME)
 
     #ETAPE 1 : TRANSFORMER LES PHRASES ACE EN DRS
     DRS_ListPredicates = transformACEToDRS(listPredicates)

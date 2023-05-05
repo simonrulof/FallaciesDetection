@@ -27,4 +27,6 @@ def form_predicats_raisonnements(ACE_FILE_NAME):
         line = file.readline()
 
         i+= 1
+
+    file.close()
     return listNameSentences, listPredicates, listReasoning
