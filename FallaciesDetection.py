@@ -7,9 +7,9 @@ from Assets.ACEToDRS import transformACEToDRS
 
 if __name__ == '__main__':
     setup()
-    
+
     # ETAPE 0 : METTRE EN FORME LES PREDICATS ET RAISONNEMENTS
-    listNameSentences, listPredicates, listReasoning = form_predicats_raisonnements(GlobalVar.ACE_FILE_NAME)
+    listNameSentences, listPredicates, listReasoning = form_predicats_raisonnements(GlobalVar.ACE_FILE_INPUT)
 
     #ETAPE 1 : TRANSFORMER LES PHRASES ACE EN DRS
     DRS_ListPredicates = transformACEToDRS(listPredicates)

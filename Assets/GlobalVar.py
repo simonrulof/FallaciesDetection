@@ -1,2 +1,2 @@
 global ACE_FILE_OUTPUT
-global ACE_FILE_NAME
+global ACE_FILE_INPUT
