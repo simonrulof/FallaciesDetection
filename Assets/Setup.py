@@ -2,6 +2,12 @@ import Assets.GlobalVar as GlobalVar
 
 
 def setup():
+    """
+    set up the global variables from the config file
+    global variables are :
+        ACE_FILE_INPUT
+        ACE_FILE_OUTPUT
+    """
 
     file = open("config", "r")
 
@@ -13,4 +19,4 @@ def setup():
         if data[0] == "ACE_FILE_OUTPUT=":
             GlobalVar.ACE_FILE_OUTPUT = data[1][:-1:]
         line = file.readline()
-
+    file.close()

@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae0eecde-4501-464e-a0ac-e7e0984826b9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GlobalVar.py" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GlobalVar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Predicats_Raisonnements.py" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Predicats_Raisonnements.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Setup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FallaciesDetection.py" beforeDir="false" afterPath="$PROJECT_DIR$/FallaciesDetection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config" beforeDir="false" afterPath="$PROJECT_DIR$/config" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +50,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.test">
     <configuration name="FallaciesDetection" type="PythonConfigurationType" factoryName="Python">
       <module name="FallaciesDetection" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -73,6 +73,32 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python">
+      <module name="FallaciesDetection" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.FallaciesDetection" />
+      <item itemvalue="Python.test" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -84,7 +110,11 @@
       <updated>1683199050077</updated>
       <workItem from="1683199051997" duration="61000" />
       <workItem from="1683199119048" duration="7134000" />
-      <workItem from="1683267061362" duration="1152000" />
+      <workItem from="1683267061362" duration="7257000" />
+      <workItem from="1683291046442" duration="57000" />
+      <workItem from="1683633030626" duration="2939000" />
+      <workItem from="1683706261142" duration="2823000" />
+      <workItem from="1683786397254" duration="9436000" />
     </task>
     <servers />
   </component>
@@ -92,7 +122,9 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/FallaciesDetection$test.coverage" NAME="test Coverage Results" MODIFIED="1683795404856" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/FallaciesDetection$main.coverage" NAME="FallaciesDetection Coverage Results" MODIFIED="1683208706075" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/FallaciesDetection$FallaciesDetection.coverage" NAME="FallaciesDetection Coverage Results" MODIFIED="1683268185317" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FallaciesDetection$DRSController.coverage" NAME="DRSController Coverage Results" MODIFIED="1683789277042" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Assets" />
+    <SUITE FILE_PATH="coverage/FallaciesDetection$FallaciesDetection.coverage" NAME="FallaciesDetection Coverage Results" MODIFIED="1683272881170" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

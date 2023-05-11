@@ -1,5 +1,13 @@
-def form_predicats_raisonnements(ACE_FILE_NAME):
-    file = open(ACE_FILE_NAME, "r")
+def form_predicates_reasoning(ACE_FILE):
+    """
+
+    :param ACE_FILE: file where ACE sentences are
+    :return: list of the names of the sentences,
+            list of the predicates for each sentence,
+            list of the reasoning for each sentence
+    """
+
+    file = open(ACE_FILE, "r")
 
     listNameSentences = []
     listPredicates = []
@@ -26,7 +34,7 @@ def form_predicats_raisonnements(ACE_FILE_NAME):
         file.readline()
         line = file.readline()
 
-        i+= 1
+        i += 1
 
     file.close()
     return listNameSentences, listPredicates, listReasoning
