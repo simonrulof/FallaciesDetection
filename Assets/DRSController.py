@@ -182,9 +182,6 @@ class DRSController:
                             contents[i].append(line)
                             break
 
-        print(titles)
-        print(contents)
-        print(links)
 
         master = Tk()
         mainFrame = Frame(master)
@@ -200,7 +197,6 @@ class DRSController:
         for i in range(len(links)):
             canvasLinks.append(Canvas(canvas[titles[links[i][1]][1]]))
 
-        print(canvasLinks)
 
 
         titles = titles[::-1]

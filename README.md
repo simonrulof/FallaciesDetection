@@ -15,4 +15,4 @@ minimally need to install the following SWI Prolog packages: `clib`, `sgml`, and
 the documentation embedded in the source files you also need `pldoc`.
 
 Then you have to compile the APE. Go in the APE folder and run the command `make install`. 
-The APE installation process is finished if you don't see any compilation error and if a new file `ape.exe` appeared.
+The APE installation process is finished if you don't see any compilation error and if a new file `ape.exe` appeared in the APE folder.
