@@ -1,21 +1,5 @@
-nameOfTest1:
-predicat 1
-predicat 2
-...
-predicat N
-
-Raisonement 1
-...
-Raisonement N
-
-
-nameOfTest2:
-predicat 1
-predicat 2
-...
-predicat N
-
-Raisonement 1
-...
-Raisonement N
-
+there is a ground.
+there is a weather.
+if the weather rains then the ground is wet.
+the ground is wet.
+the weather rains.

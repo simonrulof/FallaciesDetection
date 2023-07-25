@@ -7,9 +7,18 @@ import numpy as np
 class DRSController:
 
     def __init__(self, string_DRS):
-        self.string = string_DRS
-        self.tabDRS = self.string.split("\n")
+        self.DRSString = string_DRS
+        self.tabDRS = self.DRSString.split("\n")
 
+    def toString(self):
+        return self.DRSString
+
+
+
+
+
+    def getDRSString(self):
+        return self.DRSString
 
     def setupBaseData(self, content):
         lines = content.split("\n")
@@ -37,7 +46,6 @@ class DRSController:
         w.create_rectangle(1+x, 1+y + sizeFirstFrame, x + width, y + height, fill="white", outline='black')
 
         w.create_text(x + width / 2, y + sizeFirstFrame / 2, text=title, )
-
 
     def configSubCanvas(self, w: tkinter.Canvas, x: int, y: int, title: str, content, padx=10, pady=10, sizeFirstFrame=25, minWidth=100, widthLetter=9, heightLetter=17):
         """
@@ -131,8 +139,6 @@ class DRSController:
 
         w.create_text(1, 1, text=txt, anchor="nw")
 
-
-
     def toLogic(self):
         pass
 
@@ -143,7 +149,7 @@ class DRSController:
 
 
 
-        lines = self.string.split("\n")
+        lines = self.DRSString.split("\n")
 
         titles = []
         contents = []
@@ -152,8 +158,8 @@ class DRSController:
         for line in lines:
             dec = 0
             if line:
-                while line[0:4] == "    ":
-                    line = line[4:]
+                while line[0:3] == "   ":
+                    line = line[3:]
                     dec += 1
                     if not line:
                         break
@@ -235,28 +241,172 @@ class DRSController:
         mainFrame.pack(anchor="nw")
         master.mainloop()
 
+    def isPropertyPresent(self, line, output):
+        if len(output) == 0:
+            return ""
+        for property in output:
+            if property[1][0:8] == 'property':
+                context = property[1].split(',')
+                lineContext = line.split(',')
+                if len(context) == len(lineContext):
+                    count = 0
+                    for i in range(1,len(context)):
+                        if context[i] == lineContext[i]:
+                            count+=1
+                    if count == len(context)-1:
+                        return lineContext[0][9:] + "-" + context[0][9:]
+        return ""
+
+    def isPredicatePresent(self, line, output):
+        if len(output) == 0:
+            return line
+        for predicate in output:
+            if predicate[1][0:9] == 'predicate':
+                context = predicate[1].split(',')
+                lineContext = line.split(',')
+                if len(context) == len(lineContext):
+                    count = 0
+                    for i in range(1,len(context)):
+                        if context[i] == lineContext[i]:
+                            count+=1
+                    if count == len(context)-1:
+                        newLine = line
+                        newLine = newLine.replace('(' + lineContext[0].split('(')[1] + ',', '(' + context[0].split('(')[1] + ',')
+                        newLine = newLine.replace(',' + lineContext[0].split('(')[1] + ',', ',' + context[0].split('(')[1] + ',')
+                        newLine = newLine.replace(',' + lineContext[0].split('(')[1] + ')', ',' + context[0].split('(')[1] + ')')
+                        return newLine
+
+        return line
+
+
+    def sortDRSString(self, str):
+        lines = str.split('\n')
+        strOut = ''
+        decLines = []
+        decMax = 0
+        for line in lines:
+            if len(line) > 0:
+                dec = 0
+                while line[0] == ' ':
+                    line = line[1:]
+                    dec += 1
+                if dec > decMax:
+                    decMax = dec
+                decLines.append(dec)
+
+        for i in range(decMax+1):
+            for j in range(len(decLines)):
+                if decLines[j] == i:
+                    strOut = strOut + i*' ' + lines[j] + '\n'
+
+        return strOut
+
+    def DRSProlog(self):
+
+        str = self.DRSString
+
+        lines = str.split('\n')
+        for i in range(len(lines)-1, -1, -1):
+            if len(lines[i]) > 0:
+                lineSplit = lines[i].split('(')
+                lineSplit[0] += 'tag'
+                lines[i] = '('.join(lineSplit)
+                break
+        str = '\n'.join(lines)
+
+        str = self.sortDRSString(str)
+
+        output = []
+
+        strsplit = str.split('\n')
+        for line in strsplit:
+            if len(line) > 1:
+                dec = 0
+                while line[0] == ' ':
+                    line = line[1:]
+                    dec+=1
+                if line[0] != '[':
+                    line = line.split('-')[0]
+                    if line[0:8] == "property":
+                        change = self.isPropertyPresent(line, output)
+                        if change == "":
+                            output.append((dec,line))
+                        else:
+                            fromTo = change.split('-')
+                            for i in range(len(strsplit)):
+                                strsplit[i] = strsplit[i].replace('(' + fromTo[0] + ',', '(' + fromTo[1] + ',')
+                                strsplit[i] = strsplit[i].replace(',' + fromTo[0] + ',', ',' + fromTo[1] + ',')
+                                strsplit[i] = strsplit[i].replace(',' + fromTo[0] + ')', ',' + fromTo[1] + ')')
+                    elif line[0:9] == "predicate":
+                        newLine = self.isPredicatePresent(line, output)
+                        output.append((dec,newLine))
+                    else:
+                        output.append((dec, line))
 
 
 
+        max = output[0][0]
+        for i in output:
+            if max < i[0]:
+                max = i[0]
 
 
+        while max >= 0:
+            i = len(output)-1
+            while i >= 0:
+                if (output[i][1] == '∼' or output[i][1] == '¬' or output[i][1].isupper()) and output[i][0] == max:
+                    if output[i][1] == '∼' :
+                        sentence = 'notProvable('
+                    if output[i][1] == '¬' :
+                        sentence = 'not('
+                    else:
+                        sentence = output[i][1] + '('
+                    j = i + 1
+                    while j<len(output):
+                        sentence = sentence + output[j][1] + ','
+                        fronti = j
+                        j+=1
 
+                    sentence = sentence[:-1:] + ')'
 
+                    output = output[:i] + [(output[i][0], sentence)]
 
-        """
+                if (output[i][1] == '=>' or output[i][1] == 'v') and output[i][0] == max:
+                    if output[i][1] == '=>':
+                        sentence = 'implies(['
+                    if output[i][1] == 'v':
+                        sentence = 'OR(['
+                    j = i-1
+                    predicates = []
+                    while j>=0 and output[j][0] == output[i][0]:
+                        predicates.append(output[j][1] + ',')
+                        j-=1
 
-        master = Tk()
-        frameTest = Frame(master)
-        baseCanvas = Canvas(frameTest)
-        subCanva = Canvas(baseCanvas)
-        subCanva2 = Canvas(frameTest)
+                    backi = j+1
 
-        self.configSubCanvas(subCanva, 0, 0, title="title", content="aaaaaaaahahaha")
-        self.configSubCanvas(subCanva2, 0, 0, title="title", content="aaaaaaaahabbbbbbbbbbbbbbb\nbbb\nbbbbbbbbbbbbb\nbbb\nbbbbbbbbbbbbb\nbbb\nbbbbbbbhaha")
-        self.configCanvas(baseCanvas,[subCanva, subCanva2], 0, 0, title="title", content="aaaaaaaahahaha")
+                    for predicate in predicates[::-1]:
+                        sentence = sentence + predicate
 
-        subCanva2.pack()
-        frameTest.pack(anchor="n")
-        master.mainloop()
+                    sentence = sentence[:-1:] + '],['
 
-        """
+                    j = i+1
+                    while j<len(output):
+                        sentence = sentence + output[j][1] + ','
+                        fronti = j
+                        j+=1
+
+                    sentence = sentence[:-1:] + '])'
+
+                    output = output[:backi] + [(output[i][0], sentence)]
+                    i = backi
+                i-=1
+            max-=1
+
+        retour = []
+        for i in output:
+            if i[1].find('tag') == -1:
+                retour.append(i[1].replace('[', '').replace(']', '').lower())
+            else:
+                concl = i[1].replace('tag', '').replace('[', '').replace(']', '').lower()
+
+        return (retour, concl)

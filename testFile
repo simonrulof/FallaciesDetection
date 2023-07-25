@@ -1,29 +1,8 @@
-[A]
-a
-    [B]
-    b[C]
-        [D]
-        d
-            [E]
-            e
-            SHOULD
-            [E]
-            e
-                [F]
-                f
-                SHOULD
-                [G]
-                g
-            [E]
-            e
-            =>
-            [E]
-            e
-                [F]
-                f
-                =>
-                [G]
-                g
-    =>
-    [K]
-    k
+[]
+   NOT
+   []
+      [A]
+      object(A,screen,countable,na,eq,1)-1/6
+      =>
+      [B]
+      predicate(B,blink,A)-1/7
