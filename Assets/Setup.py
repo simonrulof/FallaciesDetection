@@ -9,8 +9,10 @@ def setup():
         ACE_FILE_OUTPUT
     """
 
+    # open the config file
     file = open("config", "r")
 
+    # setting up all the global variables from the config file.
     line = file.readline()
     while line:
         data = line.split(' ')

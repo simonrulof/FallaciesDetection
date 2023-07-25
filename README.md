@@ -1,6 +1,5 @@
-TAKE NOTE THAT IT IS ONLY A DEMO, CODE IS NOT COMMENTED AND EXPLANATIONS IS NOT UP TO DATE FOR NOW
-
-IT WILL BE UPDATED DURING THIS WEEK
+TAKE NOTE THAT IT IS ONLY A DEMO, CODE FASTLY COMMENTED.
+IT WILL BE UPDATED TO FIX BUGS DURING THIS WEEK
 
 
 # Fallacies Detection
@@ -18,6 +17,8 @@ To run APE (which is needed for FallaciesDetection) you need a recent version of
 SWI-Prolog is free software and can be downloaded from <http://www.swi-prolog.org>. Note that you
 minimally need to install the following SWI Prolog packages: `clib`, `sgml`, and `http`. To view
 the documentation embedded in the source files you also need `pldoc`.
+
+Note that the lexicon used for APE is not the basic one you get on the APE's github. it is instead a [Large lexicon for APE](https://github.com/Attempto/Clex).
 
 Then you have to compile the APE. Go in the APE folder and run the command `make install`. 
 The APE installation process is finished if you don't see any compilation error and if a new file `ape.exe` appeared in the APE folder.
