@@ -5,14 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae0eecde-4501-464e-a0ac-e7e0984826b9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/FallaciesDetection.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FallaciesDetection.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ACEToDRS.py" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ACEToDRS.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DRSController.py" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DRSController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GlobalVar.py" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GlobalVar.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PrologManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PrologManager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FallaciesDetection.py" beforeDir="false" afterPath="$PROJECT_DIR$/FallaciesDetection.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -132,7 +124,7 @@
       <workItem from="1689063230253" duration="5106000" />
       <workItem from="1689669770323" duration="8490000" />
       <workItem from="1689923194484" duration="2658000" />
-      <workItem from="1689926760728" duration="20255000" />
+      <workItem from="1689926760728" duration="20310000" />
     </task>
     <servers />
   </component>
