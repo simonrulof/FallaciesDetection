@@ -1,3 +1,8 @@
+TAKE NOTE THAT IT IS ONLY A DEMO, CODE IS NOT COMMENTED AND EXPLANATIONS IS NOT UP TO DATE FOR NOW
+
+IT WILL BE UPDATED DURING THIS WEEK
+
+
 # Fallacies Detection
 
 Fallacies Detection is a small project to detect possible fallacies in an [Attempto Controlled English (APE)](http://attempto.ifi.uzh.ch/site/) argument.
