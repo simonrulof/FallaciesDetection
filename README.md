@@ -21,3 +21,10 @@ Note that the lexicon used for APE is not the basic one you get on the APE's git
 
 Then you have to compile the APE. Go in the APE folder and run the command `make install`. 
 The APE installation process is finished if you don't see any compilation error and if a new file `ape.exe` appeared in the APE folder.
+
+## Running
+
+To run the application, you need to first write your ACE sentences in the input file, you can modify this file's name in the config file. By default, this file's name is ACE_SENTENCES.
+Each sentence must be on its own line, the last line is considered as the "conclusion" of your argument.
+
+Then you just have to run FallaciesDetection.py and see the result.
